@@ -817,7 +817,7 @@ section { padding: 90px 24px; position: relative; }
             <span class="event-detail-icon">📅</span>
             <div>
               <strong>Kamis, 2 Juli 2026</strong>
-              08:00 - Selesai
+              08:00 WIB - Selesai
             </div>
           </div>
           <div class="event-detail">
@@ -936,7 +936,7 @@ section { padding: 90px 24px; position: relative; }
     </div>
   </section>
 
-  <!-- RSVP dengan redirect ke WhatsApp -->
+<!-- RSVP dengan redirect ke WhatsApp -->
 <section id="rsvp">
   <div class="center reveal">
     <span class="section-tag">✦ Konfirmasi Kehadiran ✦</span>
@@ -948,16 +948,19 @@ section { padding: 90px 24px; position: relative; }
       <label>Nama Lengkap *</label>
       <input type="text" id="rsvp-name" placeholder="Masukkan nama Anda" required>
     </div>
+
     <div class="form-group">
       <label>Konfirmasi Kehadiran *</label>
-      <select id="rsvp-attend">
+      <select id="rsvp-attend" onchange="toggleGuests()">
         <option value="">— Pilih —</option>
         <option value="hadir">✅ Insyaallah Hadir</option>
         <option value="tidak">❌ Tidak Dapat Hadir</option>
         <option value="mungkin">🤔 Mungkin Hadir</option>
       </select>
     </div>
-    <div class="form-group">
+
+    <!-- Jumlah tamu (auto hide) -->
+    <div class="form-group" id="guest-wrapper">
       <label>Jumlah Tamu</label>
       <select id="rsvp-guests">
         <option value="1">1 orang</option>
@@ -967,11 +970,14 @@ section { padding: 90px 24px; position: relative; }
         <option value="5+">5+ orang</option>
       </select>
     </div>
+
     <div class="form-group">
-      <label>Ucapan & Doa</label>
+      <label>Ucapan & Doa (Opsional)</label>
       <textarea id="rsvp-msg" placeholder="Tuliskan doa dan ucapan Anda untuk kami..."></textarea>
     </div>
+
     <button class="btn-submit" onclick="sendToWhatsApp()">Kirim Konfirmasi via WhatsApp</button>
+
     <div class="rsvp-success" id="rsvp-success" style="display:none;">
       Terima kasih! Anda akan diarahkan ke WhatsApp untuk mengirim konfirmasi.
     </div>
@@ -979,8 +985,24 @@ section { padding: 90px 24px; position: relative; }
 </section>
 
 <script>
-// GANTI NOMOR WHATSAPP INI DENGAN NOMOR TUJUAN (gunakan kode negara, tanpa tanda '+', contoh: 6281234567890)
-const WA_NUMBER = "6285691243590"; // <-- Ganti dengan nomor WhatsApp panitia/pengantin
+const WA_NUMBER = "6285691243590";
+
+// toggle jumlah tamu
+function toggleGuests() {
+  const attend = document.getElementById('rsvp-attend').value;
+  const guestWrapper = document.getElementById('guest-wrapper');
+
+  if (attend === "hadir") {
+    guestWrapper.style.display = 'block';
+  } else {
+    guestWrapper.style.display = 'none';
+  }
+}
+
+// langsung hide pas pertama load
+document.addEventListener("DOMContentLoaded", () => {
+  toggleGuests();
+});
 
 function sendToWhatsApp() {
   const name = document.getElementById('rsvp-name').value.trim();
@@ -993,37 +1015,47 @@ function sendToWhatsApp() {
     return;
   }
 
-  // Buat teks pesan
   let statusText = "";
   if (attend === "hadir") statusText = "✅ Insyaallah Hadir";
   else if (attend === "tidak") statusText = "❌ Tidak Dapat Hadir";
-  else if (attend === "mungkin") statusText = "🤔 Mungkin Hadir";
+  else statusText = "🤔 Mungkin Hadir";
 
-  let waMessage = `*Konfirmasi Kehadiran Pernikahan*%0A%0A`;
-  waMessage += `Nama: ${name}%0A`;
-  waMessage += `Kehadiran: ${statusText}%0A`;
-  waMessage += `Jumlah Tamu: ${guests}%0A`;
-  if (message) waMessage += `Ucapan/Doa: ${message}%0A`;
-  waMessage += `%0A~ Terima kasih ~`;
+  let waMessage = `Konfirmasi Kehadiran Pernikahan\n\n`;
+  waMessage += `Nama: ${name}\n`;
+  waMessage += `Kehadiran: ${statusText}\n`;
 
-  // Buat URL WhatsApp
-  const waUrl = `https://wa.me/${WA_NUMBER}?text=${waMessage}`;
+  // hanya kirim jumlah tamu kalau hadir
+  if (attend === "hadir") {
+    waMessage += `Jumlah Tamu: ${guests}\n`;
+  }
 
-  // Tampilkan pesan sukses sebentar lalu redirect
-  const successDiv = document.getElementById('rsvp-success');
-  successDiv.style.display = 'block';
+  // ucapan opsional
+  if (message !== "") {
+    waMessage += `Ucapan/Doa: ${message}\n`;
+  }
+
+  waMessage += `\n~ Terima kasih ~`;
+
+  const encodedMessage = encodeURIComponent(waMessage);
+  const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodedMessage}`;
+
+  document.getElementById('rsvp-success').style.display = 'block';
+
   setTimeout(() => {
     window.open(waUrl, '_blank');
-    // Optional: disable form fields agar tidak dikirim ulang
+
+    // disable form biar gak spam
     document.getElementById('rsvp-name').disabled = true;
     document.getElementById('rsvp-attend').disabled = true;
     document.getElementById('rsvp-guests').disabled = true;
     document.getElementById('rsvp-msg').disabled = true;
+
     const btn = document.querySelector('.btn-submit');
     if (btn) btn.style.display = 'none';
   }, 800);
 }
 </script>
+
 <!-- GIFT / AMPLOP (1 opsi) -->
 <section id="gift">
   <div class="center reveal">
@@ -1036,20 +1068,78 @@ function sendToWhatsApp() {
     </p>
 
     <div class="gift-cards reveal" style="grid-template-columns: 1fr; max-width: 400px; margin: 0 auto;">
-      <!-- BCA (satu-satunya) -->
       <div class="gift-card">
         <div class="gift-chip">🏦</div>
         <div class="gift-card-type">Transfer E-Wallet</div>
         <div class="gift-bank">GoPay</div>
         <div class="gift-name">a.n. Cecep Ansodik</div>
-        <div class="gift-number" id="num-bca">085691243590</div>
-        <button class="btn-copy" onclick="copyNumber('num-bca', this)">
+
+        <div class="gift-number" id="num-gopay">085691243590</div>
+
+        <button class="btn-copy" onclick="copyNumber('num-gopay', this)">
           📋 Salin Nomor
         </button>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+.gift-number {
+  font-family: 'Courier New', monospace;
+  font-size: 22px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.gift-number.copied {
+  color: #4caf50;
+  transform: scale(1.05);
+}
+
+.btn-copy {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #d4af37;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-copy:hover {
+  opacity: 0.85;
+}
+
+.btn-copy.copied {
+  background: #4caf50;
+  color: #fff;
+}
+</style>
+
+<script>
+function copyNumber(id, btn) {
+  const numberEl = document.getElementById(id);
+  const text = numberEl.innerText;
+
+  navigator.clipboard.writeText(text).then(() => {
+    // tombol berubah
+    btn.innerText = "Tersalin ✅";
+    btn.classList.add("copied");
+
+    // animasi nomor
+    numberEl.classList.add("copied");
+
+    setTimeout(() => {
+      btn.innerText = "📋 Salin Nomor";
+      btn.classList.remove("copied");
+      numberEl.classList.remove("copied");
+    }, 2000);
+  });
+}
+</script>
 
   <!-- CLOSING -->
   <section id="closing">
