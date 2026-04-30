@@ -1020,7 +1020,7 @@ function sendToWhatsApp() {
   else if (attend === "tidak") statusText = "❌ Tidak Dapat Hadir";
   else statusText = "🤔 Mungkin Hadir";
 
-  let waMessage = `Konfirmasi Kehadiran Pernikahan\n\n`;
+  let waMessage = `*Konfirmasi Kehadiran Pernikahan*\n\n`;
   waMessage += `Nama: ${name}\n`;
   waMessage += `Kehadiran: ${statusText}\n`;
 
@@ -1158,12 +1158,14 @@ function copyNumber(id, btn) {
       Wassalamu'alaikum Warahmatullahi Wabarakatuh
     </p>
 
-    <!-- Love Elegant -->
     <span class="closing-hearts">❦</span>
 
-    <p style="margin-top:1.5rem;font-size:.7rem;letter-spacing:.2em;color:rgba(255,255,255,.25);text-transform:uppercase;">
+    <p class="closing-name">
       Cecep & Amelda
     </p>
+
+    <!-- Divider -->
+    <div class="closing-divider"></div>
 
     <!-- Footer Creator -->
     <div class="closing-footer">
@@ -1182,7 +1184,6 @@ function copyNumber(id, btn) {
   font-size: 26px;
   color: #d4af37;
   opacity: 0.85;
-  letter-spacing: 3px;
   animation: pulse 2.5s infinite ease-in-out;
 }
 
@@ -1192,8 +1193,24 @@ function copyNumber(id, btn) {
   100% { transform: scale(1); opacity: 0.7; }
 }
 
+.closing-name {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,.25);
+  text-transform: uppercase;
+}
+
+/* 🔥 Divider elegan */
+.closing-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #d4af37, transparent);
+  margin: 1.8rem auto;
+  opacity: 0.6;
+}
+
 .closing-footer {
-  margin-top: 2.5rem;
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   color: rgba(255,255,255,0.35);
@@ -1212,8 +1229,6 @@ function copyNumber(id, btn) {
   text-decoration: underline;
 }
 </style>
-
-</main>
 
 <!-- Audio element (silent fallback) -->
 <audio id="bg-music" loop>
