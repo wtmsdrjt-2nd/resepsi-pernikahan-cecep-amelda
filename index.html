@@ -633,9 +633,28 @@ section { padding: 90px 24px; position: relative; }
 <section id="cover">
   <div class="cover-bg"></div>
 
-  <!-- (SVG tetap, gak diubah) -->
+  <!-- botanical corners (TETAP ADA) -->
+  <!-- kiri atas -->
+  <svg class="cover-corner tl" width="220" height="220" viewBox="0 0 220 220" fill="none">
+    <path d="M10 210 Q60 150 30 80 Q80 120 110 60 Q90 130 150 110 Q100 150 130 200" stroke="#C4963A" stroke-width="1.2"/>
+  </svg>
 
-  <!-- petals container -->
+  <!-- kanan atas -->
+  <svg class="cover-corner tr" width="220" height="220" viewBox="0 0 220 220" fill="none">
+    <path d="M10 210 Q60 150 30 80 Q80 120 110 60 Q90 130 150 110 Q100 150 130 200" stroke="#C4963A" stroke-width="1.2"/>
+  </svg>
+
+  <!-- kiri bawah -->
+  <svg class="cover-corner bl" width="220" height="220" viewBox="0 0 220 220" fill="none">
+    <path d="M10 210 Q60 150 30 80 Q80 120 110 60 Q90 130 150 110 Q100 150 130 200" stroke="#C4963A" stroke-width="1.2"/>
+  </svg>
+
+  <!-- kanan bawah -->
+  <svg class="cover-corner br" width="220" height="220" viewBox="0 0 220 220" fill="none">
+    <path d="M10 210 Q60 150 30 80 Q80 120 110 60 Q90 130 150 110 Q100 150 130 200" stroke="#C4963A" stroke-width="1.2"/>
+  </svg>
+
+  <!-- petals -->
   <div id="petals-container"></div>
 
   <div class="cover-inner">
@@ -660,7 +679,7 @@ section { padding: 90px 24px; position: relative; }
 </section>
 
 <style>
-/* ✨ cinematic text */
+/* animasi */
 .reveal-text {
   opacity: 0;
   transform: translateY(20px);
@@ -668,9 +687,9 @@ section { padding: 90px 24px; position: relative; }
   animation: fadeUp 1s ease forwards;
 }
 
-.delay-1 { animation-delay: 0.3s; }
-.delay-2 { animation-delay: 0.6s; }
-.delay-3 { animation-delay: 0.9s; }
+.delay-1 { animation-delay: .3s; }
+.delay-2 { animation-delay: .6s; }
+.delay-3 { animation-delay: .9s; }
 .delay-4 { animation-delay: 1.2s; }
 
 @keyframes fadeUp {
@@ -681,29 +700,20 @@ section { padding: 90px 24px; position: relative; }
   }
 }
 
-/* 💎 tanggal lebih elegan */
+/* tanggal */
 .cover-date {
   font-size: 0.75rem;
   letter-spacing: 0.18em;
   opacity: 0.8;
   text-transform: uppercase;
-  margin-top: 0.6rem;
 }
 
-/* 📱 responsive */
-@media (max-width: 480px) {
-  .cover-date {
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-  }
-}
-
-/* 🔥 glow halus biar mahal */
+/* glow nama */
 .cover-names {
   text-shadow: 0 0 20px rgba(212,175,55,0.2);
 }
 </style>
-
+  
 <!-- ══════════ NAV ══════════ -->
 <nav class="sticky-nav" id="sticky-nav">
   <div class="nav-logo">Cecep & Amelda</div>
