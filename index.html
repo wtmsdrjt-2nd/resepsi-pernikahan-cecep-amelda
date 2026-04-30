@@ -633,25 +633,27 @@ section { padding: 90px 24px; position: relative; }
 <section id="cover">
   <div class="cover-bg"></div>
 
-  <!-- botanical corners (TETAP ADA) -->
-  <!-- kiri atas -->
-  <svg class="cover-corner tl" width="220" height="220" viewBox="0 0 220 220" fill="none">
-    <path d="M10 210 Q60 150 30 80 Q80 120 110 60 Q90 130 150 110 Q100 150 130 200" stroke="#C4963A" stroke-width="1.2"/>
+  <!-- 🌿 Elegant Floating Ornaments -->
+  <svg class="ornament tl" viewBox="0 0 200 200">
+    <path d="M20 180 Q80 120 60 60 Q120 100 150 40" stroke="#d4af37" stroke-width="1.2" fill="none"/>
+    <circle cx="60" cy="80" r="3" fill="#d4af37" opacity=".6"/>
+    <circle cx="120" cy="60" r="2" fill="#d4af37" opacity=".5"/>
   </svg>
 
-  <!-- kanan atas -->
-  <svg class="cover-corner tr" width="220" height="220" viewBox="0 0 220 220" fill="none">
-    <path d="M10 210 Q60 150 30 80 Q80 120 110 60 Q90 130 150 110 Q100 150 130 200" stroke="#C4963A" stroke-width="1.2"/>
+  <svg class="ornament tr" viewBox="0 0 200 200">
+    <path d="M180 180 Q120 120 140 60 Q80 100 50 40" stroke="#d4af37" stroke-width="1.2" fill="none"/>
+    <circle cx="140" cy="80" r="3" fill="#d4af37" opacity=".6"/>
+    <circle cx="80" cy="60" r="2" fill="#d4af37" opacity=".5"/>
   </svg>
 
-  <!-- kiri bawah -->
-  <svg class="cover-corner bl" width="220" height="220" viewBox="0 0 220 220" fill="none">
-    <path d="M10 210 Q60 150 30 80 Q80 120 110 60 Q90 130 150 110 Q100 150 130 200" stroke="#C4963A" stroke-width="1.2"/>
+  <svg class="ornament bl" viewBox="0 0 200 200">
+    <path d="M20 20 Q80 80 60 140 Q120 100 150 160" stroke="#d4af37" stroke-width="1.2" fill="none"/>
+    <circle cx="60" cy="120" r="3" fill="#d4af37" opacity=".6"/>
   </svg>
 
-  <!-- kanan bawah -->
-  <svg class="cover-corner br" width="220" height="220" viewBox="0 0 220 220" fill="none">
-    <path d="M10 210 Q60 150 30 80 Q80 120 110 60 Q90 130 150 110 Q100 150 130 200" stroke="#C4963A" stroke-width="1.2"/>
+  <svg class="ornament br" viewBox="0 0 200 200">
+    <path d="M180 20 Q120 80 140 140 Q80 100 50 160" stroke="#d4af37" stroke-width="1.2" fill="none"/>
+    <circle cx="140" cy="120" r="3" fill="#d4af37" opacity=".6"/>
   </svg>
 
   <!-- petals -->
@@ -679,7 +681,7 @@ section { padding: 90px 24px; position: relative; }
 </section>
 
 <style>
-/* animasi */
+/* ✨ cinematic text */
 .reveal-text {
   opacity: 0;
   transform: translateY(20px);
@@ -700,7 +702,27 @@ section { padding: 90px 24px; position: relative; }
   }
 }
 
-/* tanggal */
+/* 🌿 ornaments */
+.ornament {
+  position: absolute;
+  width: 180px;
+  opacity: 0.6;
+  pointer-events: none;
+  animation: float 6s ease-in-out infinite;
+}
+
+.tl { top: 0; left: 0; }
+.tr { top: 0; right: 0; }
+.bl { bottom: 0; left: 0; }
+.br { bottom: 0; right: 0; }
+
+@keyframes float {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-10px) scale(1.02); }
+  100% { transform: translateY(0px) scale(1); }
+}
+
+/* 💎 date */
 .cover-date {
   font-size: 0.75rem;
   letter-spacing: 0.18em;
@@ -708,9 +730,21 @@ section { padding: 90px 24px; position: relative; }
   text-transform: uppercase;
 }
 
-/* glow nama */
+/* 🔥 glow nama */
 .cover-names {
   text-shadow: 0 0 20px rgba(212,175,55,0.2);
+}
+
+/* 📱 responsive */
+@media (max-width: 480px) {
+  .ornament {
+    width: 120px;
+    opacity: 0.4;
+  }
+
+  .cover-date {
+    font-size: 0.7rem;
+  }
 }
 </style>
   
