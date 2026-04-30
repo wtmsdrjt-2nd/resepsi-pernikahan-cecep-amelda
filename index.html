@@ -1020,13 +1020,13 @@ function sendToWhatsApp() {
   else if (attend === "tidak") statusText = "❌ Tidak Dapat Hadir";
   else statusText = "🤔 Mungkin Hadir";
 
-  let waMessage = `*Konfirmasi Kehadiran Pernikahan*\n\n`;
+  let waMessage = `*Konfirmasi Kehadiran Resepsi Pernikahan*\n\n`;
   waMessage += `Nama: ${name}\n`;
   waMessage += `Kehadiran: ${statusText}\n`;
 
   // hanya kirim jumlah tamu kalau hadir
   if (attend === "hadir") {
-    waMessage += `Jumlah Tamu: ${guests}\n`;
+    waMessage += `Jumlah Tamu: ${guests} orang\n`;
   }
 
   // ucapan opsional
