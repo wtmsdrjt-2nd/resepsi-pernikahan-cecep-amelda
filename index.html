@@ -628,28 +628,32 @@ section { padding: 90px 24px; position: relative; }
 </style>
 </head>
 <body>
-  
+
 <!-- ══════════ COVER ══════════ -->
 <section id="cover">
   <div class="cover-bg"></div>
 
-  <!-- ✨ Elegant Frame -->
-  <svg class="frame-top" viewBox="0 0 500 120">
-    <path d="M20 100 Q120 20 250 60 Q380 20 480 100" stroke="#d4af37" stroke-width="1.2" fill="none"/>
-    <circle cx="250" cy="60" r="3" fill="#d4af37"/>
+  <!-- 🌿 Elegant Floating Ornaments -->
+  <svg class="ornament tl" viewBox="0 0 200 200">
+    <path d="M20 180 Q80 120 60 60 Q120 100 150 40" stroke="#d4af37" stroke-width="1.2" fill="none"/>
+    <circle cx="60" cy="80" r="3" fill="#d4af37" opacity=".6"/>
+    <circle cx="120" cy="60" r="2" fill="#d4af37" opacity=".5"/>
   </svg>
 
-  <svg class="frame-bottom" viewBox="0 0 500 120">
-    <path d="M20 20 Q120 100 250 60 Q380 100 480 20" stroke="#d4af37" stroke-width="1.2" fill="none"/>
-    <circle cx="250" cy="60" r="3" fill="#d4af37"/>
+  <svg class="ornament tr" viewBox="0 0 200 200">
+    <path d="M180 180 Q120 120 140 60 Q80 100 50 40" stroke="#d4af37" stroke-width="1.2" fill="none"/>
+    <circle cx="140" cy="80" r="3" fill="#d4af37" opacity=".6"/>
+    <circle cx="80" cy="60" r="2" fill="#d4af37" opacity=".5"/>
   </svg>
 
-  <svg class="frame-left" viewBox="0 0 120 500">
-    <path d="M100 20 Q20 120 60 250 Q20 380 100 480" stroke="#d4af37" stroke-width="1.2" fill="none"/>
+  <svg class="ornament bl" viewBox="0 0 200 200">
+    <path d="M20 20 Q80 80 60 140 Q120 100 150 160" stroke="#d4af37" stroke-width="1.2" fill="none"/>
+    <circle cx="60" cy="120" r="3" fill="#d4af37" opacity=".6"/>
   </svg>
 
-  <svg class="frame-right" viewBox="0 0 120 500">
-    <path d="M20 20 Q100 120 60 250 Q100 380 20 480" stroke="#d4af37" stroke-width="1.2" fill="none"/>
+  <svg class="ornament br" viewBox="0 0 200 200">
+    <path d="M180 20 Q120 80 140 140 Q80 100 50 160" stroke="#d4af37" stroke-width="1.2" fill="none"/>
+    <circle cx="140" cy="120" r="3" fill="#d4af37" opacity=".6"/>
   </svg>
 
   <!-- petals -->
@@ -677,33 +681,7 @@ section { padding: 90px 24px; position: relative; }
 </section>
 
 <style>
-#cover {
-  position: relative;
-  overflow: hidden;
-}
-
-/* ✨ frame */
-.frame-top,
-.frame-bottom {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  opacity: 0.6;
-}
-.frame-top { top: 0; }
-.frame-bottom { bottom: 0; }
-
-.frame-left,
-.frame-right {
-  position: absolute;
-  height: 100%;
-  top: 0;
-  opacity: 0.4;
-}
-.frame-left { left: 0; }
-.frame-right { right: 0; }
-
-/* 🎬 cinematic text */
+/* ✨ cinematic text */
 .reveal-text {
   opacity: 0;
   transform: translateY(20px);
@@ -724,6 +702,26 @@ section { padding: 90px 24px; position: relative; }
   }
 }
 
+/* 🌿 ornaments */
+.ornament {
+  position: absolute;
+  width: 180px;
+  opacity: 0.6;
+  pointer-events: none;
+  animation: float 6s ease-in-out infinite;
+}
+
+.tl { top: 0; left: 0; }
+.tr { top: 0; right: 0; }
+.bl { bottom: 0; left: 0; }
+.br { bottom: 0; right: 0; }
+
+@keyframes float {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-10px) scale(1.02); }
+  100% { transform: translateY(0px) scale(1); }
+}
+
 /* 💎 date */
 .cover-date {
   font-size: 0.75rem;
@@ -732,13 +730,18 @@ section { padding: 90px 24px; position: relative; }
   text-transform: uppercase;
 }
 
-/* 🔥 nama glow */
+/* 🔥 glow nama */
 .cover-names {
   text-shadow: 0 0 20px rgba(212,175,55,0.2);
 }
 
-/* 📱 mobile */
+/* 📱 responsive */
 @media (max-width: 480px) {
+  .ornament {
+    width: 120px;
+    opacity: 0.4;
+  }
+
   .cover-date {
     font-size: 0.7rem;
   }
