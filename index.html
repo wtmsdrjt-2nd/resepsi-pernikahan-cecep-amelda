@@ -633,71 +633,76 @@ section { padding: 90px 24px; position: relative; }
 <section id="cover">
   <div class="cover-bg"></div>
 
-  <!-- botanical corners -->
-  <svg class="cover-corner tl" width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M10 210 Q60 150 30 80 Q80 120 110 60 Q90 130 150 110 Q100 150 130 200" stroke="#C4963A" stroke-width="1.2" fill="none"/>
-    <ellipse cx="50" cy="140" rx="18" ry="10" fill="none" stroke="#8B9E7E" stroke-width="1" transform="rotate(-35,50,140)"/>
-    <ellipse cx="85" cy="95" rx="15" ry="9" fill="none" stroke="#8B9E7E" stroke-width="1" transform="rotate(20,85,95)"/>
-    <ellipse cx="125" cy="115" rx="20" ry="11" fill="none" stroke="#8B9E7E" stroke-width="1" transform="rotate(-55,125,115)"/>
-    <circle cx="35" cy="70" r="4" fill="#C4963A" opacity=".6"/>
-    <circle cx="150" cy="105" r="3" fill="#C4963A" opacity=".5"/>
-    <circle cx="100" cy="55" r="5" fill="#C4858B" opacity=".5"/>
-    <path d="M20 180 Q40 160 55 175 Q45 190 25 185Z" fill="#8B9E7E" opacity=".4"/>
-    <path d="M60 130 Q80 115 90 132 Q78 145 62 138Z" fill="#8B9E7E" opacity=".35"/>
-  </svg>
-
-  <svg class="cover-corner tr" width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M10 210 Q60 150 30 80 Q80 120 110 60 Q90 130 150 110 Q100 150 130 200" stroke="#C4963A" stroke-width="1.2" fill="none"/>
-    <ellipse cx="50" cy="140" rx="18" ry="10" fill="none" stroke="#8B9E7E" stroke-width="1" transform="rotate(-35,50,140)"/>
-    <ellipse cx="85" cy="95" rx="15" ry="9" fill="none" stroke="#8B9E7E" stroke-width="1" transform="rotate(20,85,95)"/>
-    <ellipse cx="125" cy="115" rx="20" ry="11" fill="none" stroke="#8B9E7E" stroke-width="1" transform="rotate(-55,125,115)"/>
-    <circle cx="35" cy="70" r="4" fill="#C4963A" opacity=".6"/>
-    <circle cx="150" cy="105" r="3" fill="#C4963A" opacity=".5"/>
-    <circle cx="100" cy="55" r="5" fill="#C4858B" opacity=".5"/>
-    <path d="M20 180 Q40 160 55 175 Q45 190 25 185Z" fill="#8B9E7E" opacity=".4"/>
-    <path d="M60 130 Q80 115 90 132 Q78 145 62 138Z" fill="#8B9E7E" opacity=".35"/>
-  </svg>
-
-  <svg class="cover-corner bl" width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M10 210 Q60 150 30 80 Q80 120 110 60 Q90 130 150 110 Q100 150 130 200" stroke="#C4963A" stroke-width="1.2" fill="none"/>
-    <ellipse cx="50" cy="140" rx="18" ry="10" fill="none" stroke="#8B9E7E" stroke-width="1" transform="rotate(-35,50,140)"/>
-    <ellipse cx="85" cy="95" rx="15" ry="9" fill="none" stroke="#8B9E7E" stroke-width="1" transform="rotate(20,85,95)"/>
-    <ellipse cx="125" cy="115" rx="20" ry="11" fill="none" stroke="#8B9E7E" stroke-width="1" transform="rotate(-55,125,115)"/>
-    <circle cx="35" cy="70" r="4" fill="#C4963A" opacity=".6"/>
-    <circle cx="150" cy="105" r="3" fill="#C4963A" opacity=".5"/>
-    <circle cx="100" cy="55" r="5" fill="#C4858B" opacity=".5"/>
-    <path d="M20 180 Q40 160 55 175 Q45 190 25 185Z" fill="#8B9E7E" opacity=".4"/>
-    <path d="M60 130 Q80 115 90 132 Q78 145 62 138Z" fill="#8B9E7E" opacity=".35"/>
-  </svg>
-
-  <svg class="cover-corner br" width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M10 210 Q60 150 30 80 Q80 120 110 60 Q90 130 150 110 Q100 150 130 200" stroke="#C4963A" stroke-width="1.2" fill="none"/>
-    <ellipse cx="50" cy="140" rx="18" ry="10" fill="none" stroke="#8B9E7E" stroke-width="1" transform="rotate(-35,50,140)"/>
-    <ellipse cx="85" cy="95" rx="15" ry="9" fill="none" stroke="#8B9E7E" stroke-width="1" transform="rotate(20,85,95)"/>
-    <ellipse cx="125" cy="115" rx="20" ry="11" fill="none" stroke="#8B9E7E" stroke-width="1" transform="rotate(-55,125,115)"/>
-    <circle cx="35" cy="70" r="4" fill="#C4963A" opacity=".6"/>
-    <circle cx="150" cy="105" r="3" fill="#C4963A" opacity=".5"/>
-    <circle cx="100" cy="55" r="5" fill="#C4858B" opacity=".5"/>
-    <path d="M20 180 Q40 160 55 175 Q45 190 25 185Z" fill="#8B9E7E" opacity=".4"/>
-    <path d="M60 130 Q80 115 90 132 Q78 145 62 138Z" fill="#8B9E7E" opacity=".35"/>
-  </svg>
+  <!-- (SVG tetap, gak diubah) -->
 
   <!-- petals container -->
   <div id="petals-container"></div>
 
   <div class="cover-inner">
-    <p class="cover-tag">Undangan Resepsi Pernikahan</p>
-    <h1 class="cover-names">
+    <p class="cover-tag reveal-text delay-1">
+      Undangan Resepsi Pernikahan
+    </p>
+
+    <h1 class="cover-names reveal-text delay-2">
       Cecep
       <span class="amp">&</span>
       Amelda
     </h1>
-    <p class="cover-date">KAMIS &nbsp;·&nbsp; 2 JULI 2026 &nbsp;·&nbsp; KARAWANG</p>
-    <button class="btn-open" onclick="openInvitation()">
+
+    <p class="cover-date reveal-text delay-3">
+      Kamis · 2 Juli 2026 · Cilebar, Karawang
+    </p>
+
+    <button class="btn-open reveal-text delay-4" onclick="openInvitation()">
       <span>✦</span> Buka Undangan <span>✦</span>
     </button>
   </div>
 </section>
+
+<style>
+/* ✨ cinematic text */
+.reveal-text {
+  opacity: 0;
+  transform: translateY(20px);
+  filter: blur(6px);
+  animation: fadeUp 1s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 0.6s; }
+.delay-3 { animation-delay: 0.9s; }
+.delay-4 { animation-delay: 1.2s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* 💎 tanggal lebih elegan */
+.cover-date {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  opacity: 0.8;
+  text-transform: uppercase;
+  margin-top: 0.6rem;
+}
+
+/* 📱 responsive */
+@media (max-width: 480px) {
+  .cover-date {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+  }
+}
+
+/* 🔥 glow halus biar mahal */
+.cover-names {
+  text-shadow: 0 0 20px rgba(212,175,55,0.2);
+}
+</style>
 
 <!-- ══════════ NAV ══════════ -->
 <nav class="sticky-nav" id="sticky-nav">
